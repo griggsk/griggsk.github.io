@@ -14,10 +14,20 @@ fetch("../layout/footer.html")
     document.querySelector("footer").innerHTML = data;
   });
 
-etch("../layout/connect.html")
+fetch("../layout/connect.html")
   .then(response => {
     return response.text()
   })
   .then(data => {
     document.querySelector("#contactMe").innerHTML = data;
+  });
+fetch("../layout/skills.html")
+  .then(response => {
+    return response.text()
+  })
+  .then(data => {
+    const skillsElement = document.querySelector("#mySkills");
+    if (skillsElement) {
+      skillsElement.innerHTML = data;
+    } 
   });
