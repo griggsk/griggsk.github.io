@@ -1,21 +1,36 @@
+<div class="container">
+  <div class="mb-12 md:mb-18 lg:mb-20">
+    <div class="mx-auto max-w-lg text-center">
+      <h2 class="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">
+      Let’s Connect and Collaborate!
+    </h2>
+    <p class="mb-3 md:text-md">
+      Need expert UX research, UI design, or web development? Let's discuss how I can help you achieve your goals.
+    </p>
+    <div class="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
+      <form action="mailto:kim.griggs@gmail.com" method="post" enctype="text/plain" class="max-w-md mx-auto p-6 bg-white rounded-md shadow-md">
 
-<div class="container relative z-10 max-w-lg text-center">
-  <h2
-    class="rb-5 mb-5 text-5xl font-bold mb-3 md:mb-6 md:text-7xl lg:text-8xl"
-  >
-    Let’s Connect and Collaborate!
-  </h2>
-  <p class="mb-3 md:text-md">
-    Are you seeking assistance with UX research, UI design, or any aspect of web development?
-    Let&#x27;s connect!
-  </p>
-  <div class="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
-    <button
-      class="focus-visible:ring-border-primary inline-flex gap-3 items-center justify-center whitespace-nowrap ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-border-primary bg-background-alternative mb-3 px-6 py-3"
-      title="Contact"
-    >
-      Contact Me</button
-    >
+        <div class="mb-4">
+          <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Your Email:</label>
+          <input type="email" id="email" name="email" required class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300">
+        </div>
+
+        <div class="mb-4">
+          <label for="subject" class="block text-gray-700 text-sm font-bold mb-2">Subject:</label>
+          <input type="text" id="subject" name="subject" required class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300" value="Job Opportunity">
+        </div>
+
+        <div class="mb-4">
+          <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Message:</label>
+          <textarea id="message" name="message" rows="4" required class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"></textarea>
+        </div>
+
+        <div class="text-center">
+          <input type="submit" value="Send Email" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline">
+        </div>
+
+      </form>
+    </div>
   </div>
 </div>
 <div class="absolute inset-0 z-0">
