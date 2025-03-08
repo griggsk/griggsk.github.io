@@ -8,9 +8,12 @@
       "Courier New", monospace;
     --color-red-500: oklch(0.637 0.237 25.331);
     --color-yellow-300: oklch(0.905 0.182 98.111);
+    --color-teal-500: oklch(0.704 0.14 182.503);
     --color-blue-300: oklch(0.809 0.105 251.813);
     --color-blue-500: oklch(0.623 0.214 259.815);
     --color-blue-700: oklch(0.488 0.243 264.376);
+    --color-violet-900: oklch(0.38 0.189 293.745);
+    --color-violet-950: oklch(0.283 0.141 291.089);
     --color-fuchsia-500: oklch(0.667 0.295 322.15);
     --color-pink-300: oklch(0.823 0.12 346.018);
     --color-pink-400: oklch(0.718 0.202 349.761);
@@ -1252,6 +1255,12 @@
     --tw-border-style: solid;
     border-style: solid;
   }
+  .border-pink-300 {
+    border-color: var(--color-pink-300);
+  }
+  .border-pink-400 {
+    border-color: var(--color-pink-400);
+  }
   .bg-\(--my_variable\) {
     background-color: var(--my_variable);
   }
@@ -1290,6 +1299,12 @@
   }
   .bg-red-500\/\[50\%\] {
     background-color: color-mix(in oklab, var(--color-red-500) 50%, transparent);
+  }
+  .bg-teal-500 {
+    background-color: var(--color-teal-500);
+  }
+  .bg-violet-900 {
+    background-color: var(--color-violet-900);
   }
   .bg-white {
     background-color: var(--color-white);
@@ -1684,6 +1699,9 @@
   }
   .text-pink-500 {
     color: var(--color-pink-500);
+  }
+  .text-violet-900 {
+    color: var(--color-violet-900);
   }
   .text-white {
     color: var(--color-white);
@@ -2158,6 +2176,13 @@
     &:hover {
       @media (hover: hover) {
         color: var(--color-fuchsia-500);
+      }
+    }
+  }
+  .hover\:text-violet-950 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-violet-950);
       }
     }
   }
