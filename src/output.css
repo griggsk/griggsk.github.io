@@ -2587,6 +2587,11 @@
       --tw-ring-color: var(--color-pink-400);
     }
   }
+  .focus-visible\:ring-violet-900 {
+    &:focus-visible {
+      --tw-ring-color: var(--color-violet-900);
+    }
+  }
   .focus-visible\:ring-offset-2 {
     &:focus-visible {
       --tw-ring-offset-width: 2px;
