@@ -1576,6 +1576,9 @@
   .border-pink-400 {
     border-color: var(--color-pink-400);
   }
+  .border-violet-900 {
+    border-color: var(--color-violet-900);
+  }
   .bg-\(--my_variable\) {
     background-color: var(--my_variable);
   }
@@ -1615,11 +1618,20 @@
   .bg-red-500\/\[50\%\] {
     background-color: color-mix(in oklab, var(--color-red-500) 50%, transparent);
   }
+  .bg-rose-500 {
+    background-color: var(--color-rose-500);
+  }
   .bg-teal-500 {
     background-color: var(--color-teal-500);
   }
+  .bg-violet-600 {
+    background-color: var(--color-violet-600);
+  }
   .bg-violet-900 {
     background-color: var(--color-violet-900);
+  }
+  .bg-violet-950 {
+    background-color: var(--color-violet-950);
   }
   .bg-white {
     background-color: var(--color-white);
@@ -2017,6 +2029,9 @@
   }
   .text-violet-900 {
     color: var(--color-violet-900);
+  }
+  .text-violet-950 {
+    color: var(--color-violet-950);
   }
   .text-white {
     color: var(--color-white);
@@ -2487,10 +2502,24 @@
       }
     }
   }
+  .hover\:bg-violet-900 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-violet-900);
+      }
+    }
+  }
   .hover\:text-fuchsia-500 {
     &:hover {
       @media (hover: hover) {
         color: var(--color-fuchsia-500);
+      }
+    }
+  }
+  .hover\:text-violet-900 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-violet-900);
       }
     }
   }
@@ -2504,6 +2533,11 @@
   .focus\:border-blue-300 {
     &:focus {
       border-color: var(--color-blue-300);
+    }
+  }
+  .focus\:border-violet-950 {
+    &:focus {
+      border-color: var(--color-violet-950);
     }
   }
   .focus\:ring {
