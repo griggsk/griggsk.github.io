@@ -1585,6 +1585,9 @@
   .border-violet-900 {
     border-color: var(--color-violet-900);
   }
+  .border-violet-950 {
+    border-color: var(--color-violet-950);
+  }
   .border-yellow-300 {
     border-color: var(--color-yellow-300);
   }
@@ -2590,6 +2593,11 @@
   .focus-visible\:ring-violet-900 {
     &:focus-visible {
       --tw-ring-color: var(--color-violet-900);
+    }
+  }
+  .focus-visible\:ring-violet-950 {
+    &:focus-visible {
+      --tw-ring-color: var(--color-violet-950);
     }
   }
   .focus-visible\:ring-offset-2 {
