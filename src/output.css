@@ -1582,6 +1582,9 @@
   .border-pink-400 {
     border-color: var(--color-pink-400);
   }
+  .border-pink-500 {
+    border-color: var(--color-pink-500);
+  }
   .border-violet-900 {
     border-color: var(--color-violet-900);
   }
