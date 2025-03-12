@@ -1,2 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 @import "tailwindcss";
+@theme {
+  --font-lora: "Lora", sans-serif;
+  --font-open: "Open Sans", sans-serif;  
+  --font-body: "Open Sans", sans-serif; 
+  --font-sans: "Lora", sans-serif;
+  --color-primary: var(--color-violet-950);
+  --color-secondary: var(--color-yellow-300);
+}
+
 /*npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch*/
