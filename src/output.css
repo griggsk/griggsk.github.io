@@ -1286,6 +1286,9 @@
   .bg-pink-300 {
     background-color: var(--color-pink-300);
   }
+  .bg-pink-400 {
+    background-color: var(--color-pink-400);
+  }
   .bg-pink-600 {
     background-color: var(--color-pink-600);
   }
