@@ -1893,6 +1893,9 @@
   .shadow-violet-950 {
     --tw-shadow-color: var(--color-violet-950);
   }
+  .shadow-violet-950\/25 {
+    --tw-shadow-color: color-mix(in oklab, var(--color-violet-950) 25%, transparent);
+  }
   .shadow-violet-950\/50 {
     --tw-shadow-color: color-mix(in oklab, var(--color-violet-950) 50%, transparent);
   }
