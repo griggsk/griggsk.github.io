@@ -20,6 +20,7 @@
     --color-violet-900: oklch(0.38 0.189 293.745);
     --color-violet-950: oklch(0.283 0.141 291.089);
     --color-fuchsia-800: oklch(0.452 0.211 324.591);
+    --color-pink-300: oklch(0.823 0.12 346.018);
     --color-pink-400: oklch(0.718 0.202 349.761);
     --color-pink-500: oklch(0.656 0.241 354.308);
     --color-pink-600: oklch(0.592 0.249 0.584);
@@ -1268,6 +1269,9 @@
   .border-yellow-300 {
     border-color: var(--color-yellow-300);
   }
+  .border-t-pink-600 {
+    border-top-color: var(--color-pink-600);
+  }
   .border-b-pink-600 {
     border-bottom-color: var(--color-pink-600);
   }
@@ -1291,6 +1295,9 @@
   }
   .bg-lime-300 {
     background-color: var(--color-lime-300);
+  }
+  .bg-pink-300 {
+    background-color: var(--color-pink-300);
   }
   .bg-pink-400 {
     background-color: var(--color-pink-400);
