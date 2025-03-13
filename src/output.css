@@ -1261,6 +1261,9 @@
   .border-yellow-300 {
     border-color: var(--color-yellow-300);
   }
+  .border-b-pink-600 {
+    border-bottom-color: var(--color-pink-600);
+  }
   .bg-\(--my_variable\) {
     background-color: var(--my_variable);
   }
@@ -1504,6 +1507,9 @@
   }
   .px-6 {
     padding-inline: calc(var(--spacing) * 6);
+  }
+  .px-8 {
+    padding-inline: calc(var(--spacing) * 8);
   }
   .px-\[5\%\] {
     padding-inline: 5%;
@@ -2193,6 +2199,11 @@
     &:first-child {
       border-top-style: var(--tw-border-style);
       border-top-width: 1px;
+    }
+  }
+  .first\:border-t-pink-600 {
+    &:first-child {
+      border-top-color: var(--color-pink-600);
     }
   }
   .hover\:-translate-y-1 {
