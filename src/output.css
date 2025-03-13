@@ -19,6 +19,7 @@
     --color-violet-300: oklch(0.811 0.111 293.571);
     --color-violet-900: oklch(0.38 0.189 293.745);
     --color-violet-950: oklch(0.283 0.141 291.089);
+    --color-purple-900: oklch(0.381 0.176 304.987);
     --color-fuchsia-800: oklch(0.452 0.211 324.591);
     --color-pink-300: oklch(0.823 0.12 346.018);
     --color-pink-400: oklch(0.718 0.202 349.761);
@@ -2298,6 +2299,13 @@
       }
     }
   }
+  .hover\:text-purple-900 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-purple-900);
+      }
+    }
+  }
   .hover\:text-violet-900 {
     &:hover {
       @media (hover: hover) {
@@ -2330,6 +2338,13 @@
     &:hover {
       @media (hover: hover) {
         text-decoration-color: var(--color-fuchsia-800);
+      }
+    }
+  }
+  .hover\:decoration-purple-900 {
+    &:hover {
+      @media (hover: hover) {
+        text-decoration-color: var(--color-purple-900);
       }
     }
   }
