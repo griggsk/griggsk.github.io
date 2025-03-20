@@ -31,3 +31,13 @@ fetch("../layout/skills.html")
       skillsElement.innerHTML = data;
     } 
   });
+fetch("../layout/projects.html")
+  .then(response => {
+    return response.text()
+  })
+  .then(data => {
+    const projectElement = document.querySelector("#projectList");
+    if (projectElement) {
+      projectElement.innerHTML = data;
+    } 
+  });
