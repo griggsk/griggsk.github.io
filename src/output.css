@@ -2030,6 +2030,10 @@
   .delay-150 {
     transition-delay: 150ms;
   }
+  .duration-150 {
+    --tw-duration: 150ms;
+    transition-duration: 150ms;
+  }
   .duration-300 {
     --tw-duration: 300ms;
     transition-duration: 300ms;
