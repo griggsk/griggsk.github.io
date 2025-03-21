@@ -11,8 +11,10 @@
     --color-yellow-950: oklch(0.286 0.066 53.813);
     --color-lime-300: oklch(0.897 0.196 126.665);
     --color-lime-950: oklch(0.274 0.072 132.109);
+    --color-teal-300: oklch(0.855 0.138 181.071);
     --color-teal-400: oklch(0.777 0.152 181.912);
     --color-teal-950: oklch(0.277 0.046 192.524);
+    --color-sky-300: oklch(0.828 0.111 230.318);
     --color-sky-400: oklch(0.746 0.16 232.661);
     --color-sky-950: oklch(0.293 0.066 243.157);
     --color-violet-300: oklch(0.811 0.111 293.571);
@@ -1307,8 +1309,14 @@
   .bg-secondary {
     background-color: var(--color-secondary);
   }
+  .bg-sky-300 {
+    background-color: var(--color-sky-300);
+  }
   .bg-sky-400 {
     background-color: var(--color-sky-400);
+  }
+  .bg-teal-300 {
+    background-color: var(--color-teal-300);
   }
   .bg-teal-400 {
     background-color: var(--color-teal-400);
