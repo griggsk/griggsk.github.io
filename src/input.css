@@ -8,4 +8,31 @@
   --color-secondary: var(--color-yellow-300);
 }
 
+.textmarker-effect {
+    position: relative;
+    padding-left: 10px;
+    padding-right: 10px;
+  
+    &:before {
+        position: absolute;
+        z-index: -1;
+        content: '';
+        background: #fbff2b;
+        height: 20px;
+        left: 0;
+        bottom: -10px;
+        width: 0%;
+        opacity: 0.7;
+        transition: all 0.5s;
+    }
+    
+    &:hover:before {
+        width: 100%;
+    }
+}
+
+.my-[3px] {
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
 /*npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch*/
