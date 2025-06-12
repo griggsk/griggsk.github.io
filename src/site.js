@@ -1,12 +1,13 @@
- /**
+/**
  * Fetches HTML content from a given path and injects it into a target DOM element.
  * Provides robust error handling for network issues, HTTP responses, and missing elements.
  *
  * @param {string} filePath - The path to the HTML file (e.g., "../layout/header.html").
  * @param {string} selector - The CSS selector for the target DOM element (e.g., "header", "#mySkills").
+ * @param {Function} [callback] - An optional callback function to execute after content is successfully loaded and injected.
  * @returns {Promise<void>} A promise that resolves when the content is injected or rejects on error.
  */
-function loadHtmlIntoElement(filePath, selector) {
+function loadHtmlIntoElement(filePath, selector, callback = () => {}) {
   return fetch(filePath)
     .then(response => {
       // Check if the HTTP response was successful (status code 200-299)
@@ -23,6 +24,7 @@ function loadHtmlIntoElement(filePath, selector) {
       if (targetElement) {
         // If the target element exists, inject the fetched HTML
         targetElement.innerHTML = data;
+        callback(); // Execute callback after content is loaded
       } else {
         // Log an error if the target element isn't found
         console.error(`Error: Element with selector "${selector}" not found in the document.`);
@@ -41,30 +43,18 @@ function loadHtmlIntoElement(filePath, selector) {
     });
 }
 
-// --- Usage ---
-
-// Load Header
-loadHtmlIntoElement("../layout/header.html", "header");
-
-// Load Footer
-loadHtmlIntoElement("../layout/footer.html", "footer");
-
-// Load Connect section (assuming #contactMe is where connect.html content goes)
-loadHtmlIntoElement("../layout/connect.html", "#contactMe");
-
-// Load Skills section
-loadHtmlIntoElement("../layout/skills.html", "#mySkills");
-
-// Load Projects section
-loadHtmlIntoElement("../layout/projects.html", "#projectList");
-
-document.addEventListener('DOMContentLoaded', () => {
+/**
+ * Initializes the mobile navigation menu functionality.
+ * This function should only be called once the header HTML has been loaded into the DOM.
+ */
+function initializeMobileMenu() {
     const navbarToggler = document.querySelector('[data-twe-collapse-init]');
     const mobileMenuWrapper = document.querySelector('#mobileMenuWrapper');
-    const navLinks = mobileMenuWrapper.querySelectorAll('a');
-    const togglerSpans = navbarToggler.querySelectorAll('span');
+    const navLinks = mobileMenuWrapper ? mobileMenuWrapper.querySelectorAll('a') : []; // Defensive check
+    const togglerSpans = navbarToggler ? navbarToggler.querySelectorAll('span') : []; // Defensive check
     const mainNavbar = document.querySelector('[data-twe-navbar-ref]');
 
+    // Ensure all necessary elements are present before proceeding
     if (navbarToggler && mobileMenuWrapper && mainNavbar) {
         // Function to open the mobile menu
         const openMobileMenu = () => {
@@ -79,7 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 'flex',             // Use flexbox for internal layout
                 'flex-col',         // Stack items vertically
                 'items-center',     // Center items horizontally
-                'shadow-lg'         // <--- ADDED SHADOW HERE
+                'shadow-lg',        // Add shadow
+                'min-h-[60vh]'      // Minimum height for mobile menu
             );
 
             navbarToggler.setAttribute('aria-expanded', 'true');
@@ -91,8 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileMenuWrapper.classList.add('hidden'); // Hide it
             mobileMenuWrapper.classList.remove(
                 'absolute', 'top-full', 'left-0', 'w-full', 'bg-white', 'z-[998]',
-                'flex', 'flex-col', 'items-center',
-                'shadow-lg'         // <--- REMOVE SHADOW HERE
+                'flex', 'flex-col', 'items-center', 'shadow-lg',
+                'min-h-[60vh]'
             );
 
             navbarToggler.setAttribute('aria-expanded', 'false');
@@ -104,15 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isOpen) {
                 togglerSpans[0].classList.add('rotate-45', 'translate-y-[8px]');
                 togglerSpans[1].classList.add('opacity-0');
+                togglerSpans[2].classList.add('-rotate-45', '-translate-y-[8px]');
             } else {
                 togglerSpans[0].classList.remove('rotate-45', 'translate-y-[8px]');
                 togglerSpans[1].classList.remove('opacity-0');
-            }
-            // Toggle the third span correctly to match the 2-line animation
-            if (isOpen) {
-                 togglerSpans[2].classList.add('-rotate-45', '-translate-y-[8px]');
-            } else {
-                 togglerSpans[2].classList.remove('-rotate-45', '-translate-y-[8px]');
+                togglerSpans[2].classList.remove('-rotate-45', '-translate-y-[8px]');
             }
         };
 
@@ -143,8 +130,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 // If screen size is desktop or larger, ensure menu is reset
                 mobileMenuWrapper.classList.remove(
                     'hidden', 'absolute', 'top-full', 'left-0', 'w-full', 'bg-white', 'z-[998]',
-                    'flex', 'flex-col', 'items-center',
-                    'shadow-lg'         // <--- REMOVE SHADOW HERE
+                    'flex', 'flex-col', 'items-center', 'shadow-lg',
+                    'min-h-[60vh]'
                 );
                 // Re-apply original desktop classes
                 mobileMenuWrapper.classList.add('lg:static', 'lg:ml-6', 'lg:flex', 'lg:h-auto', 'lg:flex-1', 'lg:items-center', 'lg:justify-between', 'lg:border-none', 'lg:bg-none', 'lg:px-0', 'lg:pt-0');
@@ -163,6 +150,27 @@ document.addEventListener('DOMContentLoaded', () => {
         mediaQuery.addEventListener('change', handleMediaQueryChange);
 
     } else {
-        console.warn('Mobile menu toggler, menu wrapper (#mobileMenuWrapper), or main navbar not found. Check your HTML selectors.');
+        // This warning should ideally not be hit if loadHtmlIntoElement worked correctly for header.html
+        console.warn('Mobile menu components not found after header load. This might indicate an issue with header.html content or a structural problem.');
     }
+}
+
+// Execute HTML loading when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    // Load Header and then initialize mobile menu
+    // The initializeMobileMenu function is now called inside the .then() block
+    // to ensure the #mobileMenuWrapper element exists in the DOM.
+    loadHtmlIntoElement("../layout/header.html", "header")
+        .then(() => {
+            initializeMobileMenu(); // Initialize after header is loaded
+        })
+        .catch(error => {
+            console.error("Failed to load header and initialize mobile menu:", error);
+        });
+
+    // Load other components
+    loadHtmlIntoElement("../layout/footer.html", "footer");
+    loadHtmlIntoElement("../layout/connect.html", "#contactMe");
+    loadHtmlIntoElement("../layout/skills.html", "#mySkills");
+    loadHtmlIntoElement("../layout/projects.html", "#projectList");
 });
